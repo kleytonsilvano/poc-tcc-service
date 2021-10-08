@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>tcc.poc</groupId>
-	<artifactId>poc-tcc</artifactId>
+	<artifactId>poc-tcc-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>poc-tcc</name>
+	<name>poc-tcc-service</name>
 	<description>POC para o TCC - Esse projeto terá as funcionalidades que são necessárias para os casos de uso referente ao mic-service</description>
 	<properties>
 		<java.version>11</java.version>

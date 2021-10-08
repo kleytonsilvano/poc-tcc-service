@@ -82,6 +82,42 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+			<!-- Swagger Configuration Plugin -->
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>4.3.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/swagger.yml</inputSpec>
+							<generatorName>spring</generatorName>
+							<apiPackage>gen.api</apiPackage>
+							<modelPackage>gen.models</modelPackage>
+							<generateApiTests>false</generateApiTests>
+							<generateApiDocumentation>false</generateApiDocumentation>
+							<generateModelTests>false</generateModelTests>
+							<generateModelDocumentation>false</generateModelDocumentation>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<java11>true</java11>
+								<dateLibrary>custom</dateLibrary>
+							</configOptions>
+							<typeMappings>
+								<typeMapping>Date=Date</typeMapping>
+							</typeMappings>
+							<importMappings>
+								<importMapping>Date=java.util.Date</importMapping>
+							</importMappings>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

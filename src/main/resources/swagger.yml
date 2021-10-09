@@ -16,7 +16,6 @@ tags:
   - name: Merchandise
     description: Everything about merchandises
 
-
 paths:
   /customers:
     get:
@@ -142,9 +141,9 @@ paths:
         '500':
           description: Internal error
 
-  /merchandise:
+  /merchandises:
     get:
-      summary: Return list of merchandises by customer
+      summary: List of goods by customer with full warehouse information
       operationId: findMerchandises
       tags:
         - Merchandise
@@ -186,7 +185,7 @@ paths:
         '500':
           description: internal error
 
-  /merchandise/delivered:
+  /merchandises/delivered:
     put:
       summary: Register merchandise as delivered
       operationId: registerMerchandiseDelivered
@@ -350,6 +349,13 @@ components:
           type: string
         delivered:
           type: boolean
+        arrivalForecast:
+          type: string
+          example: '2000-01-10T00:00:00'
+        deposits:
+          type: array
+          items:
+            $ref: '#/components/schemas/DepositModel'
     DepositAddressModel:
       title: DepositAddressModel
       type: object
@@ -361,5 +367,3 @@ components:
           type: string
         state:
           type: string
-
-

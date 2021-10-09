@@ -16,7 +16,6 @@ public class CustomerController implements CustomersApi {
     @Override
     public ResponseEntity<List<CustomerModel>> findCustomers() {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
     }
 
     @Override

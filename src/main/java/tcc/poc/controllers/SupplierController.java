@@ -2,7 +2,6 @@ package tcc.poc.controllers;
 
 import gen.api.SuppliersApi;
 import gen.models.SupplierModel;
-import io.swagger.annotations.ApiParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;

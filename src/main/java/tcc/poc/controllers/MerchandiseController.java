@@ -1,6 +1,6 @@
 package tcc.poc.controllers;
 
-import gen.api.MerchandiseApi;
+import gen.api.MerchandisesApi;
 import gen.models.MerchandiseModel;
 import gen.models.MerchandiseRequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class MerchandiseController implements MerchandiseApi {
+public class MerchandiseController implements MerchandisesApi {
 
     @Autowired
     private EisService eisService;

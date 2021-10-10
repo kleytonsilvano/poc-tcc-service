@@ -1,6 +1,6 @@
 package tcc.poc.utils;
 
-import gen.models.DepositModel;
+import gen.models.WarehouseModel;
 import gen.models.MerchandiseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,21 +27,19 @@ public class ConverterUtils {
         r.setArrivalForecast(dateUtils.getDate(merchandise.getArrivalForecast()));
         r.setId(merchandise.getId());
         r.setDescription(merchandise.getDescription());
-        r.setDeposits(getDepositModel(deposits));
         return r;
     }
 
-    public List<DepositModel> getDepositModel(List<Deposit> deposits) {
-        List<DepositModel> r = new ArrayList<>();
+    public List<WarehouseModel> getDepositModel(List<Deposit> deposits) {
+        List<WarehouseModel> r = new ArrayList<>();
         if(CollectionUtils.isEmpty(deposits)) {
             deposits.forEach(deposit -> {
-                DepositModel depositModel = new DepositModel();
-                depositModel.setDateHour(dateUtils.getDate(deposit.getDateDeposit()));
-                depositModel.setState(deposit.getWarehouse().getAddress().getState());
-                depositModel.setCity(deposit.getWarehouse().getAddress().getCity());
-                depositModel.setId(deposit.getId());
-                depositModel.setIdMerchandise(deposit.getMerchandise().getId());
-                r.add(depositModel);
+                WarehouseModel warehouseModel = new WarehouseModel();
+                warehouseModel.setDateHour(dateUtils.getDate(deposit.getDateDeposit()));
+                warehouseModel.setState(deposit.getWarehouse().getAddress().getState());
+                warehouseModel.setCity(deposit.getWarehouse().getAddress().getCity());
+                warehouseModel.setId(deposit.getId());
+                r.add(warehouseModel);
             });
         }
         return r;

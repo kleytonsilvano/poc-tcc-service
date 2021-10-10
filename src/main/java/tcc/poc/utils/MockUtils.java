@@ -72,7 +72,7 @@ public class MockUtils {
     public Deposit createMockDeposit(Integer codigoMerchandise) {
         return Deposit.builder()
                 .id(1)
-                .dateDeposit(dateUtils.getDate("2021-09-11"))
+                .dateDeposit(dateUtils.getDate("2021-09-11T00:00:00"))
                 .merchandise(Merchandise.builder().id(codigoMerchandise).build())
                 .warehouse(createMockWarehouse()).build();
     }
@@ -80,7 +80,7 @@ public class MockUtils {
     public Deposit createMockDeposit2(Integer codigoMerchandise) {
         return Deposit.builder()
                 .id(2)
-                .dateDeposit(dateUtils.getDate("2021-09-13"))
+                .dateDeposit(dateUtils.getDate("2021-09-13T00:00:00"))
                 .merchandise(Merchandise.builder().id(codigoMerchandise).build())
                 .warehouse(createMockWarehouse2()).build();
     }

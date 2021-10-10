@@ -9,7 +9,7 @@ import java.util.Date;
 @Component
 public class DateUtils {
 
-    private final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd:hh:mm:ss";
+    private final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'hh:mm:ss";
 
     public Date getDate(String date) {
         try {
@@ -28,10 +28,17 @@ public class DateUtils {
     }
 
     public String getDate(Date date) {
-        return new SimpleDateFormat(DEFAULT_DATE_FORMAT).format(date);
+        if(date != null) {
+            return new SimpleDateFormat(DEFAULT_DATE_FORMAT).format(date);
+        }
+        return null;
     }
 
     public String getDate(Date date, String format) {
-        return new SimpleDateFormat(format).format(date);
+        if(date != null) {
+            return new SimpleDateFormat(format).format(date);
+        }
+        return null;
     }
+
 }

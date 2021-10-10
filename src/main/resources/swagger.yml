@@ -346,15 +346,12 @@ components:
         - city
         - state
       properties:
-        id:
-          type: integer
-        city:
+        name:
           type: string
-        state:
-          type: string
-        dateHour:
-          type: string
-          example: '2000-01-10T00:00:00'
+        address:
+          $ref: '#/components/schemas/AdressModel'
+        isActive:
+          type: boolean
     MerchandiseRequestModel:
       title: MerchandiseModel
       type: object
@@ -390,7 +387,23 @@ components:
         arrivalForecast:
           type: string
           example: '2000-01-10T00:00:00'
-        warehouses:
+        deposits:
           type: array
           items:
-            $ref: '#/components/schemas/WarehouseModel'
+            $ref: '#/components/schemas/DepositAddressModel'
+    DepositAddressModel:
+      title: WarehouseModel
+      type: object
+      required:
+        - city
+        - state
+      properties:
+        id:
+          type: integer
+        city:
+          type: string
+        state:
+          type: string
+        dateHour:
+          type: string
+          example: '2000-01-10T00:00:00'

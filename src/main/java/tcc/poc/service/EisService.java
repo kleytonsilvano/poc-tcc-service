@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tcc.poc.models.Deposit;
 import tcc.poc.models.Merchandise;
+import tcc.poc.models.enums.StatusMerchandise;
 import tcc.poc.utils.MockUtils;
 
 import java.util.Arrays;
@@ -28,4 +29,7 @@ public class EisService {
     }
 
 
+    public StatusMerchandise getStatusMerchandise(Integer idMerchandise) {
+        return StatusMerchandise.IN_TRANSIT;
+    }
 }

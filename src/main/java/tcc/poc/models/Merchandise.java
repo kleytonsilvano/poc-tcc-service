@@ -3,6 +3,7 @@ package tcc.poc.models;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import tcc.poc.models.enums.StatusMerchandise;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,4 +19,5 @@ public class Merchandise implements Serializable {
     private Date arrivalForecast;
     private Supplier supplier;
     private Boolean isDelivered;
+    private StatusMerchandise status;
 }

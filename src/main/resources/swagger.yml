@@ -126,13 +126,11 @@ paths:
       operationId: addWarehouse
       tags:
         - Warehouse
-      parameters:
-        - $ref: '#/components/parameters/x-id-merchandise'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WarehouseAddressModel'
+              $ref: '#/components/schemas/WarehouseModel'
       responses:
         '201':
           description: Warehouse registered successfully
@@ -328,24 +326,15 @@ components:
           type: integer
         idWarehouse:
           type: integer
-    WarehouseAddressModel:
-      title: WarehouseModel
-      type: object
-      required:
-        - city
-        - state
-      properties:
-        city:
-          type: string
-        state:
-          type: string
     WarehouseModel:
       title: WarehouseModel
       type: object
       required:
-        - city
-        - state
+        - name
+        - address
       properties:
+        id:
+          type: integer
         name:
           type: string
         address:

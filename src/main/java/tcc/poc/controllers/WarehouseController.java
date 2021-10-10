@@ -4,6 +4,7 @@ import gen.api.WarehousesApi;
 import gen.models.DepositWarehouseModel;
 import gen.models.WarehouseAddressModel;
 import gen.models.WarehouseModel;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +18,7 @@ import java.util.List;
 public class WarehouseController implements WarehousesApi {
 
     @Override
-    public ResponseEntity<Void> addWarehouse(@RequestHeader(value="x-id-merchandise", required=true) String xIdMerchandise,
-                                             @Valid @RequestBody(required = false) WarehouseAddressModel warehouseAddressModel) {
+    public ResponseEntity<Void> addWarehouse(@Valid @RequestBody(required = false) WarehouseModel warehouseModel) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 

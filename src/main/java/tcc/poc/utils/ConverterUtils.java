@@ -38,6 +38,8 @@ public class ConverterUtils {
                 DepositAddressModel depositAddressModel = new DepositAddressModel();
                 depositAddressModel.setState(deposit.getWarehouse().getAddress().getState());
                 depositAddressModel.setCity(deposit.getWarehouse().getAddress().getCity());
+                depositAddressModel.setDateHour(dateUtils.getDate(deposit.getDateDeposit()));
+                depositAddressModel.setId(deposit.getId());
                 r.add(depositAddressModel);
             });
         }

@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import tcc.poc.exceptions.BadRequestException;
-import tcc.poc.exceptions.ValidationException;
 import tcc.poc.kafka.TopicProducer;
 import tcc.poc.models.Warehouse;
-import tcc.poc.models.enums.StatusMerchandise;
 import tcc.poc.models.enums.ValidationMessage;
-import tcc.poc.models.vo.WarehouseQueueVO;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
 
@@ -36,6 +33,10 @@ public class WarehouseController implements WarehousesApi {
     private ConverterUtils converterUtils;
 
     @Autowired
+    @Qualifier("topicWarehouseProducer")
+    private TopicProducer topicWarehouseProducer;
+
+    @Autowired
     @Qualifier("topicDepositWarehouseProducer")
     private TopicProducer topicDepositWarehouse;
 
@@ -43,9 +44,8 @@ public class WarehouseController implements WarehousesApi {
     public ResponseEntity<Void> addWarehouse(@Valid @RequestBody(required = false) WarehouseModel warehouseModel) {
 
         if(warehouseModel != null) {
-           WarehouseQueueVO vo = WarehouseQueueVO.builder().warehouse(warehouseModel).build();
-           String messageJson = Json.pretty(vo);
-           topicDepositWarehouse.send(messageJson);
+           String messageJson = Json.pretty(warehouseModel);
+            topicWarehouseProducer.send(messageJson);
         }
 
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
@@ -72,16 +72,8 @@ public class WarehouseController implements WarehousesApi {
     public ResponseEntity<Void> registerDepositWarehouse(@Valid @RequestBody(required = false) DepositWarehouseModel depositWarehouseModel) {
 
         if(depositWarehouseModel != null) {
-
-            StatusMerchandise status = eisService.getStatusMerchandise(depositWarehouseModel.getIdMerchandise());
-
-            if(status != null && !StatusMerchandise.RECEIVED.equals(status)) {
-
-                String messageJson = Json.pretty(depositWarehouseModel);
-                topicDepositWarehouse.send(messageJson);
-
-            }
-            throw new ValidationException(ValidationMessage.INVALID_MERCHANDISE);
+            String messageJson = Json.pretty(depositWarehouseModel);
+            topicWarehouseProducer.send(messageJson);
         }
 
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);

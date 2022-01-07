@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @Qualifier("topicWarehouseProducer")
-public class TopicProducerProducer extends TopicProducer {
+public class TopicWarehouseProducer extends TopicProducer {
 
     @Value("${topic.warehouse.register.producer}")
     private String topicName;
 
-    public TopicProducerProducer(KafkaTemplate<String, String> kafkaTemplate) {
+    public TopicWarehouseProducer(KafkaTemplate<String, String> kafkaTemplate) {
         super(kafkaTemplate);
     }
 

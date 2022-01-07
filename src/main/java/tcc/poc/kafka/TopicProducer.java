@@ -6,7 +6,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 @Slf4j
 @RequiredArgsConstructor
-public abstract class TopicWarehouse {
+public abstract class TopicProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 

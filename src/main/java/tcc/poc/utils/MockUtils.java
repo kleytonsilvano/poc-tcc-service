@@ -99,4 +99,54 @@ public class MockUtils {
                 .isActive(true).build();
     }
 
+    public Customer createMockCustomer() {
+        return Customer.builder()
+                .id(1)
+                .address(createMockAddress())
+                .name("Customer 0101")
+                .cpf("010.010.111-10")
+                .birthDate(dateUtils.getDate("2000-10-10"))
+                .telephone("(00)91111-1000")
+                .build();
+    }
+
+    public Customer createMockCustomer2() {
+        return Customer.builder()
+                .id(1)
+                .address(createMockAddress())
+                .name("Customer 0220")
+                .cpf("000.000.100-00")
+                .birthDate(dateUtils.getDate("1950-11-06"))
+                .telephone("(00)92211-1112")
+                .build();
+    }
+
+    public Customer createMockCustomer3() {
+        return Customer.builder()
+                .id(1)
+                .address(createMockAddress())
+                .name("Customer 03330")
+                .cpf("000.888.111-88")
+                .birthDate(dateUtils.getDate("1985-05-07"))
+                .telephone("(00)99911-1122")
+                .build();
+    }
+
+    public Warehouse createMockWarehouse(String codigoMerchandise) {
+        return Warehouse.builder()
+                .id(1)
+                .address(createMockAddress())
+                .name("Warehouse 1")
+                .isActive(true)
+                .build();
+    }
+
+    public Warehouse createMockWarehouse2(String codigoMerchandise) {
+        return Warehouse.builder()
+                .id(2)
+                .address(createMockAddress2())
+                .name("Warehouse 2")
+                .isActive(false)
+                .build();
+    }
 }

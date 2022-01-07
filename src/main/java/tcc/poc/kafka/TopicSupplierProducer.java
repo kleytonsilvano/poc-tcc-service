@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @Qualifier("topicSupplierProducer")
-public class TopicSupplierProducer extends TopicWarehouse{
+public class TopicSupplierProducer extends TopicProducer {
 
     @Value("${topic.supplier.register.producer}")
     private String topicName;

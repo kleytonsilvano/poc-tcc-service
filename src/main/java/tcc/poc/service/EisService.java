@@ -31,10 +31,6 @@ public class EisService {
     }
 
 
-    public StatusMerchandise getStatusMerchandise(Integer idMerchandise) {
-        return StatusMerchandise.IN_TRANSIT;
-    }
-
     public List<Customer> findCustomers() {
         return Arrays.asList(mockUtils.createMockCustomer(), mockUtils.createMockCustomer2(), mockUtils.createMockCustomer3());
     }

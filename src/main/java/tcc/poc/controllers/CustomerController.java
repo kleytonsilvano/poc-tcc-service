@@ -10,10 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import tcc.poc.constants.ScopeConstants;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
 import tcc.poc.models.Customer;
 import tcc.poc.models.enums.ValidationMessage;
+import tcc.poc.security.SecuredApi;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
 
@@ -35,6 +37,7 @@ public class CustomerController implements CustomersApi {
     private EisService eisService;
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
     public ResponseEntity<List<CustomerModel>> findCustomers() {
 
         List<Customer> list = eisService.findCustomers();
@@ -50,6 +53,7 @@ public class CustomerController implements CustomersApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
     public ResponseEntity<Void> registerCustomer(@Valid @RequestBody(required = false) CustomerModel customerModel) {
         if(customerModel != null) {
             String messageJson = Json.pretty(customerModel);

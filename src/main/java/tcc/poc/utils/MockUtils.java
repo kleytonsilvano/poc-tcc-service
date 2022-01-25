@@ -47,6 +47,18 @@ public class MockUtils {
 
     }
 
+    public Supplier createMockSupplier1() {
+        return Supplier.builder()
+                .id(1)
+                .address(createMockAddress2())
+                .cnpj("1000022200000")
+                .name("Supplier 2")
+                .email("mail2@mail.com")
+                .telephone("+551191111111")
+                .build();
+
+    }
+
     public Address createMockAddress() {
         return Address.builder()
                 .id(1)

@@ -2,10 +2,7 @@ package tcc.poc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tcc.poc.models.Customer;
-import tcc.poc.models.Deposit;
-import tcc.poc.models.Merchandise;
-import tcc.poc.models.Warehouse;
+import tcc.poc.models.*;
 import tcc.poc.models.enums.StatusMerchandise;
 import tcc.poc.utils.MockUtils;
 
@@ -37,5 +34,9 @@ public class EisService {
 
     public List<Warehouse> findWarehouseByIdMerchandise(String codigoMerchandise) {
         return Arrays.asList(mockUtils.createMockWarehouse(codigoMerchandise), mockUtils.createMockWarehouse2(codigoMerchandise));
+    }
+
+    public List<Supplier> findSuppliers() {
+        return Arrays.asList(mockUtils.createMockSupplier(), mockUtils.createMockSupplier1());
     }
 }

@@ -76,4 +76,15 @@ public class ConverterUtils {
         r.setIsActive(warehouse.getIsActive());
         return r;
     }
+
+    public SupplierModel getSupplierModel(Supplier supplier) {
+        SupplierModel s = new SupplierModel();
+        s.setAddress(getAddress(supplier.getAddress()));
+        s.setEmail(supplier.getEmail());
+        s.setId(supplier.getId());
+        s.setName(supplier.getName());
+        s.setTelephone(supplier.getTelephone());
+        s.setCnpj(supplier.getCnpj());
+        return s;
+    }
 }

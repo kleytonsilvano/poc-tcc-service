@@ -2,22 +2,35 @@ package tcc.poc.controllers;
 
 import gen.api.SuppliersApi;
 import gen.models.SupplierModel;
+import gen.models.WarehouseModel;
 import io.swagger.util.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
+import tcc.poc.models.Supplier;
+import tcc.poc.models.Warehouse;
 import tcc.poc.models.enums.ValidationMessage;
+import tcc.poc.service.EisService;
+import tcc.poc.utils.ConverterUtils;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class SupplierController implements SuppliersApi {
+
+    @Autowired
+    private EisService eisService;
+
+    @Autowired
+    private ConverterUtils converterUtils;
 
     @Autowired
     @Qualifier("topicSupplierProducer")
@@ -25,8 +38,15 @@ public class SupplierController implements SuppliersApi {
 
     @Override
     public ResponseEntity<List<SupplierModel>> findSuppliers() {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        List<Supplier> list = eisService.findSuppliers();
+        if(!CollectionUtils.isEmpty(list)) {
+            List<SupplierModel> listSupplierModel = new ArrayList<>();
+            list.forEach(supplier -> {
+                listSupplierModel.add(converterUtils.getSupplierModel(supplier));
+            });
+            return new ResponseEntity<>(listSupplierModel, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @Override

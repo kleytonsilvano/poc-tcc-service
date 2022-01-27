@@ -59,6 +59,18 @@ public class MockUtils {
 
     }
 
+    public Supplier createMockSupplier2() {
+        return Supplier.builder()
+                .id(1)
+                .address(createMockAddress2())
+                .cnpj("29459929000165")
+                .name("Supplier Default")
+                .email("supplier@mail.com")
+                .telephone("+551191111111")
+                .build();
+
+    }
+
     public Address createMockAddress() {
         return Address.builder()
                 .id(1)
@@ -139,6 +151,17 @@ public class MockUtils {
                 .address(createMockAddress())
                 .name("Customer 03330")
                 .cpf("000.888.111-88")
+                .birthDate(dateUtils.getDate("1985-05-07"))
+                .telephone("(00)99911-1122")
+                .build();
+    }
+
+    public Customer createMockCustomer4() {
+        return Customer.builder()
+                .id(1)
+                .address(createMockAddress())
+                .name("Customer Default")
+                .cpf("790.488.100-43")
                 .birthDate(dateUtils.getDate("1985-05-07"))
                 .telephone("(00)99911-1122")
                 .build();

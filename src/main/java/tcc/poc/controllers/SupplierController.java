@@ -52,6 +52,7 @@ public class SupplierController implements SuppliersApi {
         if(supplierModel != null) {
             String messageJson = Json.pretty(supplierModel);
             topicSupplierProducer.send(messageJson);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }

@@ -74,6 +74,7 @@ public class WarehouseController implements WarehousesApi {
         if(depositWarehouseModel != null) {
             String messageJson = Json.pretty(depositWarehouseModel);
             topicWarehouseProducer.send(messageJson);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
 
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);

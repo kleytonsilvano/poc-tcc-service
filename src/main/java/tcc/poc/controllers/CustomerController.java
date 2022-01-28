@@ -58,6 +58,7 @@ public class CustomerController implements CustomersApi {
         if(customerModel != null) {
             String messageJson = Json.pretty(customerModel);
             topicCustomerProducer.send(messageJson);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }

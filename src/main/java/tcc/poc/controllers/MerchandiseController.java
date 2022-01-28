@@ -61,6 +61,7 @@ public class MerchandiseController implements MerchandisesApi {
             MechandiseQueueVO vo = MechandiseQueueVO.builder().cnpj(xCnpjSupplier).merchandiseRequest(merchandiseRequestModel).build();
             String messageJson = Json.pretty(vo);
             topicMerchandiseProducer.send(messageJson);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }

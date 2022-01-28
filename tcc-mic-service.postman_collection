@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "33452b8e-abd4-4c87-b3be-a2ad4fefea1a",
+		"name": "tcc-mic-service hml",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "GetCustomer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzMzNjc3OTc4fX0.",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/customers",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCustomer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzMzNjc3OTc4fX0.",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Cadastro de cliente 010\",\r\n  \"cpf\": \"0008881118\",\r\n  \"birthDate\": \"2001-01-01\",\r\n  \"address\": {\r\n        \"id\": 1,\r\n        \"zipCode\": \"30000000\",\r\n        \"street\": \"Rua teste\",\r\n        \"number\": \"22\",\r\n        \"district\": \"Bairro 01\",\r\n        \"city\": \"Belo Horizonte\",\r\n        \"state\": \"MG\"\r\n    },\r\n  \"telephone\": \"00223366999\",\r\n  \"email\": \"teste@teste.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/customers",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomer By CPF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"type": "text",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMDc1NTUyNjAzfX0.",
+								"disabled": true
+							},
+							{
+								"key": "X-API-Key",
+								"type": "text",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzMzNjc3OTc4fX0."
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/customers/79048810043",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"customers",
+								"79048810043"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "supplier",
+			"item": [
+				{
+					"name": "GetSupplier",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/suppliers",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostSupplier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"cnpj\": \"string\",\r\n  \"address\": {\r\n    \"id\": 0,\r\n    \"zipCode\": \"string\",\r\n    \"street\": \"string\",\r\n    \"number\": \"string\",\r\n    \"district\": \"string\",\r\n    \"city\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"telephone\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/suppliers",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSupplier By CNPJ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/suppliers/29459929000165",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"suppliers",
+								"29459929000165"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "warehouse",
+			"item": [
+				{
+					"name": "GetWarehouse",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							},
+							{
+								"key": "x-id-merchandise",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/warehouses",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostWarehouse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							},
+							{
+								"key": "x-id-merchandise",
+								"value": "12",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"address\": {\r\n    \"id\": 0,\r\n    \"zipCode\": \"string\",\r\n    \"street\": \"string\",\r\n    \"number\": \"string\",\r\n    \"district\": \"string\",\r\n    \"city\": \"string\",\r\n    \"state\": \"string\"\r\n  },\r\n  \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/warehouses",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostDepositInWarehouse",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-id-merchandise",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idMerchandise\": 0,\r\n  \"idWarehouse\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/warehouses/deposits",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"warehouses",
+								"deposits"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "merchandise",
+			"item": [
+				{
+					"name": "GetMerchandise",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-cpf-customer",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/merchandises",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"merchandises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostMerchandise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-cnpj-supplier",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"value\": 0,\r\n  \"description\": \"string\",\r\n  \"customerCpf\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/merchandises",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"merchandises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutDeliveredMerchant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-id-merchandise",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/merchandises/delivered",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"merchandises",
+								"delivered"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

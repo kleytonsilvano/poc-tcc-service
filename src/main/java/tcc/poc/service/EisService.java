@@ -29,11 +29,11 @@ public class EisService {
 
     public Customer findCustomerByCpf(String cpf) {
         for (Customer c : findCustomers()) {
-            if(removeAlpha(c.getCpf()).equals(cpf)) {
+            if(removeAlpha(c.getCpf()).equals(removeAlpha(cpf))) {
                 return c;
             }
         }
-        return mockUtils.createMockCustomer4();
+        return null;
     }
 
     public List<Customer> findCustomers() {
@@ -50,14 +50,14 @@ public class EisService {
 
     public Supplier findSupplierByCnpj(String cnpj) {
         for (Supplier s : findSuppliers()) {
-            if(removeAlpha(s.getCnpj()).equals(cnpj)) {
+            if(removeAlpha(s.getCnpj()).equals(removeAlpha(cnpj))) {
                 return s;
             }
         }
-        return mockUtils.createMockSupplier2();
+        return null;
     }
 
     public String removeAlpha(String string) {
-        return string.replaceAll("[^\\d.]", "");
+        return string.replaceAll("[^\\d]", "");
     }
 }

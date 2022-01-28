@@ -53,7 +53,6 @@ public class SupplierController implements SuppliersApi {
             String messageJson = Json.pretty(supplierModel);
             topicSupplierProducer.send(messageJson);
         }
-
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }
 

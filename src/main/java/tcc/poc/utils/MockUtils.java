@@ -49,7 +49,7 @@ public class MockUtils {
 
     public Supplier createMockSupplier1() {
         return Supplier.builder()
-                .id(1)
+                .id(2)
                 .address(createMockAddress2())
                 .cnpj("1000022200000")
                 .name("Supplier 2")
@@ -61,7 +61,7 @@ public class MockUtils {
 
     public Supplier createMockSupplier2() {
         return Supplier.builder()
-                .id(1)
+                .id(3)
                 .address(createMockAddress2())
                 .cnpj("29459929000165")
                 .name("Supplier Default")
@@ -84,7 +84,7 @@ public class MockUtils {
 
     public Address createMockAddress2() {
         return Address.builder()
-                .id(1)
+                .id(2)
                 .city("São Paulo")
                 .state("SP")
                 .district("Bairro SP")
@@ -111,6 +111,7 @@ public class MockUtils {
 
     private Warehouse createMockWarehouse() {
         return Warehouse.builder()
+                .id(1)
                 .address(createMockAddress())
                 .name("Depósito Norte")
                 .isActive(true).build();
@@ -118,6 +119,7 @@ public class MockUtils {
 
     private Warehouse createMockWarehouse2() {
         return Warehouse.builder()
+                .id(2)
                 .address(createMockAddress2())
                 .name("Depósito Sul")
                 .isActive(true).build();
@@ -136,7 +138,7 @@ public class MockUtils {
 
     public Customer createMockCustomer2() {
         return Customer.builder()
-                .id(1)
+                .id(2)
                 .address(createMockAddress())
                 .name("Customer 0220")
                 .cpf("000.000.100-00")
@@ -147,7 +149,7 @@ public class MockUtils {
 
     public Customer createMockCustomer3() {
         return Customer.builder()
-                .id(1)
+                .id(3)
                 .address(createMockAddress())
                 .name("Customer 03330")
                 .cpf("000.888.111-88")
@@ -158,7 +160,7 @@ public class MockUtils {
 
     public Customer createMockCustomer4() {
         return Customer.builder()
-                .id(1)
+                .id(4)
                 .address(createMockAddress())
                 .name("Customer Default")
                 .cpf("790.488.100-43")

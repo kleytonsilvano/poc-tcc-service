@@ -61,4 +61,16 @@ public class CustomerController implements CustomersApi {
         }
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }
+
+
+    @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
+    public ResponseEntity<CustomerModel> findCustomerByCpf(String cpf) {
+        Customer customer = eisService.findCustomerByCpf(cpf);
+        if (customer != null) {
+            CustomerModel cm = converterUtils.getCustomerModel(customer);
+            return new ResponseEntity<>(cm, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

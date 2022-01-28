@@ -17,6 +17,32 @@ tags:
     description: Everything about merchandises
 
 paths:
+  /customers/{cpf}:
+    get:
+      parameters:
+        - in: path
+          name: cpf
+          required: true
+          schema:
+            type: string
+          description: cpf client
+      summary: Return customer by cpf
+      operationId: findCustomerByCpf
+      tags:
+        - Customer
+      responses:
+        '200':
+          description: Return customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerModel'
+        '400':
+          description: Request error
+        '404':
+          description: Data not found
+        '500':
+          description: internal error
   /customers:
     get:
       summary: Return customer list
@@ -57,6 +83,32 @@ paths:
         '500':
           description: internal error
 
+  /suppliers/{cnpj}:
+    get:
+      parameters:
+        - in: path
+          name: cnpj
+          required: true
+          schema:
+            type: string
+          description: cnpj supplier
+      summary: Return supplier by cnpj
+      operationId: findSupplierByCnpj
+      tags:
+        - Supplier
+      responses:
+        '200':
+          description: Return supplier
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupplierModel'
+        '400':
+          description: Request error
+        '404':
+          description: Data not found
+        '500':
+          description: internal error
   /suppliers:
     get:
       summary: Return supplier list

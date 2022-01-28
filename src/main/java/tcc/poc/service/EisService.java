@@ -27,9 +27,17 @@ public class EisService {
         return Arrays.asList(mockUtils.createMockDeposit(codigoMerchandise), mockUtils.createMockDeposit2(codigoMerchandise));
     }
 
+    public Customer findCustomerByCpf(String cpf) {
+        for (Customer c : findCustomers()) {
+            if(removeAlpha(c.getCpf()).equals(cpf)) {
+                return c;
+            }
+        }
+        return mockUtils.createMockCustomer4();
+    }
 
     public List<Customer> findCustomers() {
-        return Arrays.asList(mockUtils.createMockCustomer(), mockUtils.createMockCustomer2(), mockUtils.createMockCustomer3());
+        return Arrays.asList(mockUtils.createMockCustomer(), mockUtils.createMockCustomer2(), mockUtils.createMockCustomer3(), mockUtils.createMockCustomer4());
     }
 
     public List<Warehouse> findWarehouseByIdMerchandise(String codigoMerchandise) {
@@ -37,6 +45,19 @@ public class EisService {
     }
 
     public List<Supplier> findSuppliers() {
-        return Arrays.asList(mockUtils.createMockSupplier(), mockUtils.createMockSupplier1());
+        return Arrays.asList(mockUtils.createMockSupplier(), mockUtils.createMockSupplier1(), mockUtils.createMockSupplier2());
+    }
+
+    public Supplier findSupplierByCnpj(String cnpj) {
+        for (Supplier s : findSuppliers()) {
+            if(removeAlpha(s.getCnpj()).equals(cnpj)) {
+                return s;
+            }
+        }
+        return mockUtils.createMockSupplier2();
+    }
+
+    public String removeAlpha(String string) {
+        return string.replaceAll("[^\\d.]", "");
     }
 }

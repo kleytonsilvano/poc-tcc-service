@@ -2,7 +2,6 @@ package tcc.poc.controllers;
 
 import gen.api.SuppliersApi;
 import gen.models.SupplierModel;
-import gen.models.WarehouseModel;
 import io.swagger.util.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
 import tcc.poc.models.Supplier;
-import tcc.poc.models.Warehouse;
 import tcc.poc.models.enums.ValidationMessage;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
@@ -57,6 +55,16 @@ public class SupplierController implements SuppliersApi {
         }
 
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<SupplierModel> findSupplierByCnpj(String cnpj) {
+        Supplier supplier = eisService.findSupplierByCnpj(cnpj);
+        if (supplier != null) {
+            SupplierModel sm = converterUtils.getSupplierModel(supplier);
+            return new ResponseEntity<>(sm, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

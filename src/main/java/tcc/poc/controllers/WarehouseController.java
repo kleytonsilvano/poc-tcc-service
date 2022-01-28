@@ -12,10 +12,12 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+import tcc.poc.constants.ScopeConstants;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
 import tcc.poc.models.Warehouse;
 import tcc.poc.models.enums.ValidationMessage;
+import tcc.poc.security.SecuredApi;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
 
@@ -41,6 +43,7 @@ public class WarehouseController implements WarehousesApi {
     private TopicProducer topicDepositWarehouse;
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
     public ResponseEntity<Void> addWarehouse(@Valid @RequestBody(required = false) WarehouseModel warehouseModel) {
 
         if(warehouseModel != null) {
@@ -53,6 +56,7 @@ public class WarehouseController implements WarehousesApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
     public ResponseEntity<List<WarehouseModel>> findWarehouse(@RequestHeader(value="x-id-merchandise", required=true) String xIdMerchandise) {
 
         List<Warehouse> list = eisService.findWarehouseByIdMerchandise(xIdMerchandise);
@@ -70,6 +74,7 @@ public class WarehouseController implements WarehousesApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
     public ResponseEntity<Void> registerDepositWarehouse(@Valid @RequestBody(required = false) DepositWarehouseModel depositWarehouseModel) {
 
         if(depositWarehouseModel != null) {

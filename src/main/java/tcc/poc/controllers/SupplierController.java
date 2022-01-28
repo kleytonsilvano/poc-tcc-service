@@ -10,10 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import tcc.poc.constants.ScopeConstants;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
 import tcc.poc.models.Supplier;
 import tcc.poc.models.enums.ValidationMessage;
+import tcc.poc.security.SecuredApi;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
 
@@ -35,6 +37,7 @@ public class SupplierController implements SuppliersApi {
     private TopicProducer topicSupplierProducer;
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
     public ResponseEntity<List<SupplierModel>> findSuppliers() {
         List<Supplier> list = eisService.findSuppliers();
         if(!CollectionUtils.isEmpty(list)) {
@@ -48,6 +51,7 @@ public class SupplierController implements SuppliersApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
     public ResponseEntity<Void> registerSupplier(@Valid @RequestBody(required = false) SupplierModel supplierModel) {
         if(supplierModel != null) {
             String messageJson = Json.pretty(supplierModel);
@@ -58,6 +62,7 @@ public class SupplierController implements SuppliersApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
     public ResponseEntity<SupplierModel> findSupplierByCnpj(String cnpj) {
         Supplier supplier = eisService.findSupplierByCnpj(cnpj);
         if (supplier != null) {

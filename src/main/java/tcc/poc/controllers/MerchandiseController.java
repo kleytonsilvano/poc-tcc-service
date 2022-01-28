@@ -12,12 +12,14 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+import tcc.poc.constants.ScopeConstants;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
 import tcc.poc.models.Deposit;
 import tcc.poc.models.Merchandise;
 import tcc.poc.models.enums.ValidationMessage;
 import tcc.poc.models.vo.MechandiseQueueVO;
+import tcc.poc.security.SecuredApi;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
 
@@ -39,6 +41,7 @@ public class MerchandiseController implements MerchandisesApi {
     private TopicProducer topicMerchandiseProducer;
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
     public ResponseEntity<List<MerchandiseModel>> findMerchandises(@RequestHeader(value="x-cpf-customer", required=true) String xCpfCustomer) {
 
         List<Merchandise> list = eisService.findMerchandises(xCpfCustomer);
@@ -55,6 +58,7 @@ public class MerchandiseController implements MerchandisesApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
     public ResponseEntity<Void> registerMerchandise(@RequestHeader(value="x-cnpj-supplier", required=true) String xCnpjSupplier,
                                                     @Valid @RequestBody(required = false) MerchandiseRequestModel merchandiseRequestModel) {
         if(merchandiseRequestModel != null) {
@@ -67,6 +71,7 @@ public class MerchandiseController implements MerchandisesApi {
     }
 
     @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
     public ResponseEntity<Void> registerMerchandiseDelivered(@RequestHeader(value="x-id-merchandise", required=true) String xIdMerchandise) {
         if(xIdMerchandise != null) {
             MechandiseQueueVO vo = MechandiseQueueVO.builder().delivered(true).idMerchandise(xIdMerchandise).build();

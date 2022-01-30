@@ -16,7 +16,8 @@ public class MockUtils {
     public Merchandise createMockMerchandise(String xCpfCustomer) {
         return Merchandise.builder()
                 .id(1)
-                .arrivalForecast(dateUtils.getDate("2021-11-10T00:00:00"))
+                .code("88252224033AB")
+                .arrivalForecast(dateUtils.getDate("2022-02-10T00:00:00"))
                 .customerCpf(xCpfCustomer)
                 .isDelivered(false)
                 .description("Apple Watch")
@@ -27,12 +28,38 @@ public class MockUtils {
     public Merchandise createMockMerchandise2(String xCpfCustomer) {
         return Merchandise.builder()
                 .id(2)
+                .code("88855544744AB")
                 .arrivalForecast(dateUtils.getDate("2021-10-01T00:00:00"))
                 .customerCpf(xCpfCustomer)
                 .isDelivered(true)
                 .description("The Lord of the Rings: The Fellowship of the Ring")
                 .supplier(createMockSupplier())
                 .value(38.50D).build();
+    }
+
+    public Merchandise createMockMerchandise3(String xCpfCustomer) {
+        return Merchandise.builder()
+                .id(3)
+                .code("82200544101AB")
+                .arrivalForecast(dateUtils.getDate("2022-05-01T00:00:00"))
+                .customerCpf(xCpfCustomer)
+                .isDelivered(false)
+                .description("Sony RX100")
+                .supplier(createMockSupplier2())
+                .value(6050.48D).build();
+    }
+
+
+    public Merchandise createMockMerchandise4(String xCpfCustomer) {
+        return Merchandise.builder()
+                .id(4)
+                .code("88855544744AB")
+                .arrivalForecast(dateUtils.getDate("2018-07-25T00:00:00"))
+                .customerCpf(xCpfCustomer)
+                .isDelivered(true)
+                .description("Lego Batman 3 Beyond Gothan")
+                .supplier(createMockSupplier3())
+                .value(199.99D).build();
     }
 
     public Supplier createMockSupplier() {
@@ -55,6 +82,18 @@ public class MockUtils {
                 .name("Supplier 2")
                 .email("mail2@mail.com")
                 .telephone("+551191111111")
+                .build();
+
+    }
+
+    public Supplier createMockSupplier3() {
+        return Supplier.builder()
+                .id(2)
+                .address(createMockAddress2())
+                .cnpj("1110022200022")
+                .name("Supplier 3")
+                .email("mail3@mail.com")
+                .telephone("+551190011100")
                 .build();
 
     }

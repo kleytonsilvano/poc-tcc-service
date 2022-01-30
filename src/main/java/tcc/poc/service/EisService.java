@@ -20,7 +20,9 @@ public class EisService {
 
     public List<Merchandise> findMerchandises(String xCpfCustomer) {
         return Arrays.asList(mockUtils.createMockMerchandise(xCpfCustomer),
-                             mockUtils.createMockMerchandise2(xCpfCustomer));
+                             mockUtils.createMockMerchandise2(xCpfCustomer),
+                             mockUtils.createMockMerchandise3(xCpfCustomer),
+                             mockUtils.createMockMerchandise4(xCpfCustomer));
     }
 
     public List<Deposit> findDepositByMerchandise(Integer codigoMerchandise) {

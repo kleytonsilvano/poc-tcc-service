@@ -20,4 +20,5 @@ public class Merchandise implements Serializable {
     private Supplier supplier;
     private Boolean isDelivered;
     private StatusMerchandise status;
+    private String code;
 }

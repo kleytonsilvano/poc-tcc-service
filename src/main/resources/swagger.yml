@@ -210,6 +210,29 @@ paths:
         '500':
           description: Internal error
 
+  /merchandises/{cpfPath}/{codePath}:
+    get:
+      summary: Merchandise of client
+      operationId: findMerchandiseByCpfAndCode
+      tags:
+        - Merchandise
+      parameters:
+        - $ref: '#/components/parameters/cpfPath'
+        - $ref: '#/components/parameters/codePath'
+      responses:
+        '200':
+          description: Return merchandise
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchandiseModel'
+        '400':
+          description: Request error
+        '404':
+          description: Data not found
+        '500':
+          description: Internal error
+
   /merchandises:
     get:
       summary: List of goods by customer with full warehouse information
@@ -291,6 +314,20 @@ components:
     x-cpf-customer:
       name: x-cpf-customer
       in: header
+      required: true
+      schema:
+        type: string
+
+    cpfPath:
+      in: path
+      name: cpfPath
+      required: true
+      schema:
+        type: string
+
+    codePath:
+      in: path
+      name: codePath
       required: true
       schema:
         type: string

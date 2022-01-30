@@ -18,6 +18,16 @@ public class EisService {
     @Autowired
     private MockUtils mockUtils;
 
+    public Merchandise findMerchandiseCpfCode(String cpf, String code) {
+        List<Merchandise> merchandises = findMerchandises(cpf);
+        for (Merchandise m : merchandises) {
+            if(m.getCode().equals(code)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
     public List<Merchandise> findMerchandises(String xCpfCustomer) {
         return Arrays.asList(mockUtils.createMockMerchandise(xCpfCustomer),
                              mockUtils.createMockMerchandise2(xCpfCustomer),

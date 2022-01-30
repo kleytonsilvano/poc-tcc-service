@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,10 +43,10 @@ public class MerchandiseController implements MerchandisesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
-    public ResponseEntity<List<MerchandiseModel>> findMerchandises(@RequestHeader(value="x-cpf-customer", required=true) String xCpfCustomer) {
+    public ResponseEntity<List<MerchandiseModel>> findMerchandises(@RequestHeader(value = "x-cpf-customer", required = true) String xCpfCustomer) {
 
         List<Merchandise> list = eisService.findMerchandises(xCpfCustomer);
-        if(!CollectionUtils.isEmpty(list)) {
+        if (!CollectionUtils.isEmpty(list)) {
             List<MerchandiseModel> listMerchandiseModel = new ArrayList<>();
             list.forEach(merchandise -> {
                 List<Deposit> deposits = eisService.findDepositByMerchandise(merchandise.getId());
@@ -59,9 +60,9 @@ public class MerchandiseController implements MerchandisesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
-    public ResponseEntity<Void> registerMerchandise(@RequestHeader(value="x-cnpj-supplier", required=true) String xCnpjSupplier,
+    public ResponseEntity<Void> registerMerchandise(@RequestHeader(value = "x-cnpj-supplier", required = true) String xCnpjSupplier,
                                                     @Valid @RequestBody(required = false) MerchandiseRequestModel merchandiseRequestModel) {
-        if(merchandiseRequestModel != null) {
+        if (merchandiseRequestModel != null) {
             MechandiseQueueVO vo = MechandiseQueueVO.builder().cnpj(xCnpjSupplier).merchandiseRequest(merchandiseRequestModel).build();
             String messageJson = Json.pretty(vo);
             topicMerchandiseProducer.send(messageJson);
@@ -72,14 +73,27 @@ public class MerchandiseController implements MerchandisesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
-    public ResponseEntity<Void> registerMerchandiseDelivered(@RequestHeader(value="x-id-merchandise", required=true) String xIdMerchandise) {
-        if(xIdMerchandise != null) {
+    public ResponseEntity<Void> registerMerchandiseDelivered(@RequestHeader(value = "x-id-merchandise", required = true) String xIdMerchandise) {
+        if (xIdMerchandise != null) {
             MechandiseQueueVO vo = MechandiseQueueVO.builder().delivered(true).idMerchandise(xIdMerchandise).build();
             String messageJson = Json.pretty(vo);
             topicMerchandiseProducer.send(messageJson);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
+    }
+
+    @Override
+    @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
+    public ResponseEntity<MerchandiseModel> findMerchandiseByCpfAndCode(@PathVariable("cpfPath") String cpfPath,
+                                                                        @PathVariable("codePath") String codePath) {
+
+        Merchandise merchandise = eisService.findMerchandiseCpfCode(cpfPath, codePath);
+        if (merchandise != null) {
+            List<Deposit> deposits = eisService.findDepositByMerchandise(merchandise.getId());
+            return new ResponseEntity<>(converterUtils.getMerchandiseModel(merchandise, deposits), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

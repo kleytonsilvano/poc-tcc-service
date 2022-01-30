@@ -26,6 +26,7 @@ public class ConverterUtils {
         r.setId(merchandise.getId());
         r.setDescription(merchandise.getDescription());
         r.setDeposits(getDepositList(deposits));
+        r.setCode(merchandise.getCode());
         return r;
     }
 

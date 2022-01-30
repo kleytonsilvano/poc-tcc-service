@@ -432,6 +432,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DepositAddressModel'
+        code:
+          type: string
     DepositAddressModel:
       title: WarehouseModel
       type: object

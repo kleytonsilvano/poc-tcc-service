@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tcc.poc.constants.ScopeConstants;
 import tcc.poc.exceptions.BadRequestException;
 import tcc.poc.kafka.TopicProducer;
+import tcc.poc.models.Merchandise;
 import tcc.poc.models.Warehouse;
 import tcc.poc.models.enums.ValidationMessage;
 import tcc.poc.security.SecuredApi;
@@ -96,7 +97,8 @@ public class WarehouseController implements WarehousesApi {
     }
 
     private void validateMerchandise(Integer idMerchandise, String cpfCustomer) {
-        if(eisService.findMerchandiseByIdAndCpf(idMerchandise, cpfCustomer) == null) {
+        Merchandise merchandise = eisService.findMerchandiseByIdAndCpf(idMerchandise, cpfCustomer);
+        if(merchandise == null || merchandise.getIsDelivered()) {
             throw new BadRequestException(ValidationMessage.INVALID_MERCHANDISE);
         }
     }

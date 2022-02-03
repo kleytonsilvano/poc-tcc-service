@@ -12,7 +12,7 @@ public abstract class TopicProducer {
 
     public void send(String message){
         log.info("Payload enviado: {}" , message);
-        //kafkaTemplate.send(getTopicName(), message);
+        kafkaTemplate.send(getTopicName(), message);
     }
 
     public abstract String getTopicName();

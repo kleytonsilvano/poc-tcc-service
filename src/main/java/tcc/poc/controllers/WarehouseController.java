@@ -83,7 +83,7 @@ public class WarehouseController implements WarehousesApi {
             validateDeposit(depositWarehouseModel.getIdWarehouse());
             validateMerchandise(depositWarehouseModel.getIdMerchandise(), depositWarehouseModel.getCpfCustomer());
             String messageJson = Json.pretty(depositWarehouseModel);
-            topicWarehouseProducer.send(messageJson);
+            topicDepositWarehouse.send(messageJson);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 

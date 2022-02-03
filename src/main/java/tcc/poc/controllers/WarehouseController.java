@@ -41,7 +41,7 @@ public class WarehouseController implements WarehousesApi {
 
     @Autowired
     @Qualifier("topicDepositWarehouseProducer")
-    private TopicProducer topicDepositWarehouse;
+    private TopicProducer topicDepositWarehouseProducer;
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
@@ -83,7 +83,7 @@ public class WarehouseController implements WarehousesApi {
             validateDeposit(depositWarehouseModel.getIdWarehouse());
             validateMerchandise(depositWarehouseModel.getIdMerchandise(), depositWarehouseModel.getCpfCustomer());
             String messageJson = Json.pretty(depositWarehouseModel);
-            topicDepositWarehouse.send(messageJson);
+            topicDepositWarehouseProducer.send(messageJson);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 

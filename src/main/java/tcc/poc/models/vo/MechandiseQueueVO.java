@@ -13,6 +13,6 @@ import java.io.Serializable;
 public class MechandiseQueueVO implements Serializable {
     private MerchandiseRequestModel merchandiseRequest;
     private String cnpj;
-    private String idMerchandise;
+    private Integer idMerchandise;
     private Boolean delivered;
 }

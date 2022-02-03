@@ -73,7 +73,7 @@ public class MerchandiseController implements MerchandisesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
-    public ResponseEntity<Void> registerMerchandiseDelivered(@RequestHeader(value = "x-id-merchandise", required = true) String xIdMerchandise) {
+    public ResponseEntity<Void> registerMerchandiseDelivered(@RequestHeader(value = "x-id-merchandise", required = true) Integer xIdMerchandise) {
         if (xIdMerchandise != null) {
             MechandiseQueueVO vo = MechandiseQueueVO.builder().delivered(true).idMerchandise(xIdMerchandise).build();
             String messageJson = Json.pretty(vo);

@@ -134,7 +134,7 @@ public class MockUtils {
 
     public Address createMockAddress3() {
         return Address.builder()
-                .id(2)
+                .id(3)
                 .city("Santos")
                 .state("SP")
                 .district("Bairro Santos")
@@ -145,7 +145,7 @@ public class MockUtils {
 
     public Address createMockAddress4() {
         return Address.builder()
-                .id(1)
+                .id(4)
                 .city("Contagem")
                 .state("MG")
                 .district("Bairro Contagem")
@@ -156,7 +156,7 @@ public class MockUtils {
 
     public Address createMockAddress5() {
         return Address.builder()
-                .id(2)
+                .id(5)
                 .city("Rio de Janeiro")
                 .state("RJ")
                 .district("Bairro RJ")
@@ -237,15 +237,15 @@ public class MockUtils {
     public Warehouse createMockWarehouse2() {
         return Warehouse.builder()
                 .id(2)
-                .address(createMockAddress5())
+                .address(createMockAddress2())
                 .name("Warehouse SP")
-                .isActive(false)
+                .isActive(true)
                 .build();
     }
 
     public Warehouse createMockWarehouse3() {
         return Warehouse.builder()
-                .id(2)
+                .id(3)
                 .address(createMockAddress3())
                 .name("Armazem Santos")
                 .isActive(true)
@@ -254,7 +254,7 @@ public class MockUtils {
 
     public Warehouse createMockWarehouse4() {
         return Warehouse.builder()
-                .id(2)
+                .id(4)
                 .address(createMockAddress4())
                 .name("Armazém Contagem MG")
                 .isActive(true)
@@ -263,7 +263,7 @@ public class MockUtils {
 
     public Warehouse createMockWarehouse5() {
         return Warehouse.builder()
-                .id(2)
+                .id(5)
                 .address(createMockAddress5())
                 .name("Armazém Rio de Janeiro")
                 .isActive(true)

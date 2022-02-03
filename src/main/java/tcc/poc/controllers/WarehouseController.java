@@ -57,9 +57,10 @@ public class WarehouseController implements WarehousesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
-    public ResponseEntity<List<WarehouseModel>> findWarehouse(@RequestHeader(value="x-id-merchandise", required=true) Integer xIdMerchandise) {
+    public ResponseEntity<List<WarehouseModel>> findWarehouse(@RequestHeader(value="x-id-merchandise", required=false) Integer xIdMerchandise) {
 
-        List<Warehouse> list = eisService.findWarehouseByIdMerchandise(xIdMerchandise);
+        List<Warehouse> list = xIdMerchandise != null ?
+                eisService.findWarehouseByIdMerchandise(xIdMerchandise) : eisService.findWarehouses();
         if(!CollectionUtils.isEmpty(list)) {
             List<WarehouseModel> listWarehouseModel = new ArrayList<>();
             list.forEach(warehouse -> {

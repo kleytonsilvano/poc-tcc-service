@@ -6,6 +6,7 @@ import tcc.poc.models.*;
 import tcc.poc.models.enums.StatusMerchandise;
 import tcc.poc.utils.MockUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +18,15 @@ public class EisService {
 
     @Autowired
     private MockUtils mockUtils;
+
+    public Merchandise findMerchandiseByIdAndCpf(Integer id, String xCpfCustomer) {
+        for (Merchandise m : findMerchandises(xCpfCustomer)) {
+            if(m.getId().equals(id)) {
+                return m;
+            }
+        }
+        return null;
+    }
 
     public Merchandise findMerchandiseCpfCode(String cpf, String code) {
         List<Merchandise> merchandises = findMerchandises(cpf);
@@ -52,9 +62,33 @@ public class EisService {
         return Arrays.asList(mockUtils.createMockCustomer(), mockUtils.createMockCustomer2(), mockUtils.createMockCustomer3(), mockUtils.createMockCustomer4());
     }
 
-    public List<Warehouse> findWarehouseByIdMerchandise(String codigoMerchandise) {
-        return Arrays.asList(mockUtils.createMockWarehouse(codigoMerchandise), mockUtils.createMockWarehouse2(codigoMerchandise));
+    public List<Warehouse> findWarehouseByIdMerchandise(Integer codigoMerchandise) {
+        List<Deposit> deposits = findDepositByMerchandise(codigoMerchandise);
+        if(deposits != null && !deposits.isEmpty()) {
+            List<Warehouse> retorno = new ArrayList();
+            deposits.forEach(d -> retorno.add(d.getWarehouse()));
+            return retorno;
+        }
+        return null;
     }
+
+    public List<Warehouse> findWarehouses() {
+        return Arrays.asList(mockUtils.createMockWarehouse(),
+                             mockUtils.createMockWarehouse2(),
+                             mockUtils.createMockWarehouse3(),
+                             mockUtils.createMockWarehouse4(),
+                             mockUtils.createMockWarehouse5());
+    }
+
+    public Warehouse findWarehouse(Integer id) {
+        for (Warehouse w : findWarehouses()) {
+            if(w.getId().equals(id)) {
+                return w;
+            }
+        }
+        return null;
+    }
+
 
     public List<Supplier> findSuppliers() {
         return Arrays.asList(mockUtils.createMockSupplier(), mockUtils.createMockSupplier1(), mockUtils.createMockSupplier2());

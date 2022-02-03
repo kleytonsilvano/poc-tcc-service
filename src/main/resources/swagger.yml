@@ -284,7 +284,7 @@ paths:
       tags:
         - Merchandise
       parameters:
-        - $ref: '#/components/parameters/x-id-merchandise'
+        - $ref: '#/components/parameters/x-id-merchandise-required'
       responses:
         '204':
           description: Goods registered as successfully delivered
@@ -300,9 +300,16 @@ components:
     x-id-merchandise:
       name: x-id-merchandise
       in: header
+      required: false
+      schema:
+        type: integer
+
+    x-id-merchandise-required:
+      name: x-id-merchandise
+      in: header
       required: true
       schema:
-        type: string
+        type: integer
 
     x-cnpj-supplier:
       name: x-cnpj-supplier
@@ -415,6 +422,8 @@ components:
           type: integer
         idWarehouse:
           type: integer
+        cpfCustomer:
+          type: string
     WarehouseModel:
       title: WarehouseModel
       type: object

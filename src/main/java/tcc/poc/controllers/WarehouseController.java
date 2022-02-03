@@ -57,7 +57,7 @@ public class WarehouseController implements WarehousesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_READ})
-    public ResponseEntity<List<WarehouseModel>> findWarehouse(@RequestHeader(value="x-id-merchandise", required=true) String xIdMerchandise) {
+    public ResponseEntity<List<WarehouseModel>> findWarehouse(@RequestHeader(value="x-id-merchandise", required=true) Integer xIdMerchandise) {
 
         List<Warehouse> list = eisService.findWarehouseByIdMerchandise(xIdMerchandise);
         if(!CollectionUtils.isEmpty(list)) {
@@ -78,6 +78,8 @@ public class WarehouseController implements WarehousesApi {
     public ResponseEntity<Void> registerDepositWarehouse(@Valid @RequestBody(required = false) DepositWarehouseModel depositWarehouseModel) {
 
         if(depositWarehouseModel != null) {
+            validateDeposit(depositWarehouseModel.getIdWarehouse());
+            validateMerchandise(depositWarehouseModel.getIdMerchandise(), depositWarehouseModel.getCpfCustomer());
             String messageJson = Json.pretty(depositWarehouseModel);
             topicWarehouseProducer.send(messageJson);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -86,4 +88,15 @@ public class WarehouseController implements WarehousesApi {
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }
 
+    private void validateDeposit(Integer idWarehouse) {
+        if(eisService.findWarehouse(idWarehouse) == null) {
+            throw new BadRequestException(ValidationMessage.INVALID_WAREHOUSE);
+        }
+    }
+
+    private void validateMerchandise(Integer idMerchandise, String cpfCustomer) {
+        if(eisService.findMerchandiseByIdAndCpf(idMerchandise, cpfCustomer) == null) {
+            throw new BadRequestException(ValidationMessage.INVALID_MERCHANDISE);
+        }
+    }
 }

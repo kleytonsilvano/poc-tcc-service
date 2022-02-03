@@ -132,6 +132,39 @@ public class MockUtils {
                 .zipCode("30000000").build();
     }
 
+    public Address createMockAddress3() {
+        return Address.builder()
+                .id(2)
+                .city("Santos")
+                .state("SP")
+                .district("Bairro Santos")
+                .number("880")
+                .street("Rua Santos")
+                .zipCode("30000000").build();
+    }
+
+    public Address createMockAddress4() {
+        return Address.builder()
+                .id(1)
+                .city("Contagem")
+                .state("MG")
+                .district("Bairro Contagem")
+                .number("2772")
+                .street("Rua Contagem")
+                .zipCode("30000000").build();
+    }
+
+    public Address createMockAddress5() {
+        return Address.builder()
+                .id(2)
+                .city("Rio de Janeiro")
+                .state("RJ")
+                .district("Bairro RJ")
+                .number("58")
+                .street("Rua RJ")
+                .zipCode("30000000").build();
+    }
+
     public Deposit createMockDeposit(Integer codigoMerchandise) {
         return Deposit.builder()
                 .id(1)
@@ -146,22 +179,6 @@ public class MockUtils {
                 .dateDeposit(dateUtils.getDate("2021-09-13T00:00:00"))
                 .merchandise(Merchandise.builder().id(codigoMerchandise).build())
                 .warehouse(createMockWarehouse2()).build();
-    }
-
-    private Warehouse createMockWarehouse() {
-        return Warehouse.builder()
-                .id(1)
-                .address(createMockAddress())
-                .name("Depósito Norte")
-                .isActive(true).build();
-    }
-
-    private Warehouse createMockWarehouse2() {
-        return Warehouse.builder()
-                .id(2)
-                .address(createMockAddress2())
-                .name("Depósito Sul")
-                .isActive(true).build();
     }
 
     public Customer createMockCustomer() {
@@ -208,21 +225,48 @@ public class MockUtils {
                 .build();
     }
 
-    public Warehouse createMockWarehouse(String codigoMerchandise) {
+    public Warehouse createMockWarehouse() {
         return Warehouse.builder()
                 .id(1)
                 .address(createMockAddress())
-                .name("Warehouse 1")
+                .name("Warehouse BH")
                 .isActive(true)
                 .build();
     }
 
-    public Warehouse createMockWarehouse2(String codigoMerchandise) {
+    public Warehouse createMockWarehouse2() {
         return Warehouse.builder()
                 .id(2)
-                .address(createMockAddress2())
-                .name("Warehouse 2")
+                .address(createMockAddress5())
+                .name("Warehouse SP")
                 .isActive(false)
+                .build();
+    }
+
+    public Warehouse createMockWarehouse3() {
+        return Warehouse.builder()
+                .id(2)
+                .address(createMockAddress3())
+                .name("Armazem Santos")
+                .isActive(true)
+                .build();
+    }
+
+    public Warehouse createMockWarehouse4() {
+        return Warehouse.builder()
+                .id(2)
+                .address(createMockAddress4())
+                .name("Armazém Contagem MG")
+                .isActive(true)
+                .build();
+    }
+
+    public Warehouse createMockWarehouse5() {
+        return Warehouse.builder()
+                .id(2)
+                .address(createMockAddress5())
+                .name("Armazém Rio de Janeiro")
+                .isActive(true)
                 .build();
     }
 }

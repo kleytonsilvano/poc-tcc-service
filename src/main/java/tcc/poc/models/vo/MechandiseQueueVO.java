@@ -15,4 +15,5 @@ public class MechandiseQueueVO implements Serializable {
     private String cnpj;
     private Integer idMerchandise;
     private Boolean delivered;
+    private String code;
 }

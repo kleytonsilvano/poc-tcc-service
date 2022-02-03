@@ -3,6 +3,7 @@ package tcc.poc.controllers;
 import gen.api.MerchandisesApi;
 import gen.models.MerchandiseModel;
 import gen.models.MerchandiseRequestModel;
+import gen.models.MerchandiseResponse;
 import io.swagger.util.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,6 +24,7 @@ import tcc.poc.models.vo.MechandiseQueueVO;
 import tcc.poc.security.SecuredApi;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
+import tcc.poc.utils.MerchandiseUtils;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -60,13 +62,18 @@ public class MerchandiseController implements MerchandisesApi {
 
     @Override
     @SecuredApi(allowedScopes = {ScopeConstants.MIC_WRITE})
-    public ResponseEntity<Void> registerMerchandise(@RequestHeader(value = "x-cnpj-supplier", required = true) String xCnpjSupplier,
-                                                    @Valid @RequestBody(required = false) MerchandiseRequestModel merchandiseRequestModel) {
+    public ResponseEntity<MerchandiseResponse> registerMerchandise(@RequestHeader(value = "x-cnpj-supplier", required = true) String xCnpjSupplier,
+                                                                   @Valid @RequestBody(required = false) MerchandiseRequestModel merchandiseRequestModel) {
+        MerchandiseResponse r = new MerchandiseResponse();
         if (merchandiseRequestModel != null) {
-            MechandiseQueueVO vo = MechandiseQueueVO.builder().cnpj(xCnpjSupplier).merchandiseRequest(merchandiseRequestModel).build();
+            String code = MerchandiseUtils.createUniqueCode();
+            r.setCode(code);
+            MechandiseQueueVO vo = MechandiseQueueVO.builder()
+                    .code(code)
+                    .cnpj(xCnpjSupplier).merchandiseRequest(merchandiseRequestModel).build();
             String messageJson = Json.pretty(vo);
             topicMerchandiseProducer.send(messageJson);
-            return new ResponseEntity<>(HttpStatus.CREATED);
+            return new ResponseEntity<>(r, HttpStatus.CREATED);
         }
         throw new BadRequestException(ValidationMessage.REQUEST_ERROR);
     }

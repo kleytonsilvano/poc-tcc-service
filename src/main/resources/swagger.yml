@@ -271,6 +271,10 @@ paths:
               $ref: '#/components/schemas/MerchandiseRequestModel'
       responses:
         '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchandiseResponse'
           description: Merchandise successfully registered
         '400':
           description: Request error
@@ -450,6 +454,16 @@ components:
         description:
           type: string
         customerCpf:
+          type: string
+        deliveryAddress:
+          $ref: '#/components/schemas/AdressModel'
+    MerchandiseResponse:
+      title: MerchandiseResponse
+      type: object
+      required:
+        - code
+      properties:
+        code:
           type: string
     MerchandiseModel:
       title: MerchandiseModel

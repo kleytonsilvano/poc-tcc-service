@@ -26,7 +26,7 @@ public class DefaultFilter implements Filter {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS, DELETE, PUT, GET, PATCH");
         response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "X-API-Key, x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN, *, x-cpf-customer, x-cnpj-supplier, ");
+        response.setHeader("Access-Control-Allow-Headers", "X-API-Key, x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN, *, x-cpf-customer, x-cnpj-supplier, x-id-merchandise ");
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);

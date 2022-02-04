@@ -25,6 +25,7 @@ import tcc.poc.security.SecuredApi;
 import tcc.poc.service.EisService;
 import tcc.poc.utils.ConverterUtils;
 import tcc.poc.utils.MerchandiseUtils;
+import tcc.poc.utils.ValidateUtils;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -66,6 +67,8 @@ public class MerchandiseController implements MerchandisesApi {
                                                                    @Valid @RequestBody(required = false) MerchandiseRequestModel merchandiseRequestModel) {
         MerchandiseResponse r = new MerchandiseResponse();
         if (merchandiseRequestModel != null) {
+            ValidateUtils.validateCpf(merchandiseRequestModel.getCustomerCpf());
+            ValidateUtils.validateAddress(merchandiseRequestModel.getDeliveryAddress());
             String code = MerchandiseUtils.createUniqueCode();
             r.setCode(code);
             MechandiseQueueVO vo = MechandiseQueueVO.builder()

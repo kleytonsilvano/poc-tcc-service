@@ -448,6 +448,9 @@ components:
       type: object
       required:
         - customerCpf
+        - value
+        - deliveryAddress
+        - description
       properties:
         value:
           type: number

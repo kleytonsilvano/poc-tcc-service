@@ -15,7 +15,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzMzNjc3OTc4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -43,7 +43,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzMzNjc3OTc4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -81,17 +81,11 @@
 							{
 								"key": "X-API-Key",
 								"type": "text",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMDc1NTUyNjAzfX0.",
-								"disabled": true
-							},
-							{
-								"key": "X-API-Key",
-								"type": "text",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzMzNjc3OTc4fX0."
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0."
 							}
 						],
 						"url": {
-							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/customers/79048810043",
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/customers/01001011110",
 							"protocol": "http",
 							"host": [
 								"tccmicservice-env",
@@ -102,7 +96,7 @@
 							],
 							"path": [
 								"customers",
-								"79048810043"
+								"01001011110"
 							]
 						}
 					},
@@ -120,7 +114,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -148,7 +142,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -185,7 +179,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -239,7 +233,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							},
 							{
@@ -272,7 +266,7 @@
 						"header": [
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							},
 							{
@@ -313,19 +307,14 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "x-id-merchandise",
-								"value": "1",
-								"type": "text"
-							},
-							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"idMerchandise\": 0,\r\n  \"idWarehouse\": 0\r\n}",
+							"raw": "{\r\n  \"idMerchandise\": 1,\r\n  \"idWarehouse\": 4,\r\n  \"cpfCustomer\": \"79048810043\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -362,12 +351,12 @@
 						"header": [
 							{
 								"key": "x-cpf-customer",
-								"value": "1",
+								"value": "79048810043",
 								"type": "text"
 							},
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -395,18 +384,18 @@
 						"header": [
 							{
 								"key": "x-cnpj-supplier",
-								"value": "1",
+								"value": "29459929000165",
 								"type": "text"
 							},
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"value\": 0,\r\n  \"description\": \"string\",\r\n  \"customerCpf\": \"string\"\r\n}",
+							"raw": "{\r\n  \"value\": 200,\r\n  \"description\": \"Produto Teste 22\",\r\n  \"customerCpf\": \"79048810043\",\r\n  \"deliveryAddress\": {\r\n    \"zipCode\": \"36202004\",\r\n    \"street\": \"Rua Teste\",\r\n    \"number\": \"22\",\r\n    \"district\": \"Bairro\",\r\n    \"city\": \"City\",\r\n    \"state\": \"MG\"\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -442,7 +431,7 @@
 							},
 							{
 								"key": "X-API-Key",
-								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQzMzI3ODk3Nzk4fX0.",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0.",
 								"type": "text"
 							}
 						],
@@ -459,6 +448,41 @@
 							"path": [
 								"merchandises",
 								"delivered"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMerchandise by cpf/code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-cpf-customer",
+								"type": "text",
+								"value": "79048810043"
+							},
+							{
+								"key": "X-API-Key",
+								"type": "text",
+								"value": "eyJhbGciOiJub25lIn0.eyJ0b2tlbiI6eyJzY29wZSI6WyJNSUNfUkVBRCIsIk1JQ19XUklURSJdLCJjbGllbnRfaWQiOiJNSUMiLCJleHBpcmF0aW9uIjoxNjQ0MTY1NDk4MDMzfX0."
+							}
+						],
+						"url": {
+							"raw": "http://tccmicservice-env.eba-jfr6ymtd.us-east-1.elasticbeanstalk.com/merchandises/1/88855544744AB",
+							"protocol": "http",
+							"host": [
+								"tccmicservice-env",
+								"eba-jfr6ymtd",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"merchandises",
+								"1",
+								"88855544744AB"
 							]
 						}
 					},
